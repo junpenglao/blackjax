@@ -432,11 +432,11 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1695279130.977353    2887 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
+I0000 00:00:1695569325.283189    3134 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
 No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-31940.441, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1178.2244, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(59043.01, dtype=float32, weak_type=True)})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-34464.97, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1214.8245, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(64092.07, dtype=float32, weak_type=True)})
 </pre></div>
 </div>
 </div>
@@ -475,7 +475,7 @@ No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">rng_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">rng_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">states</span> <span class="o">=</span> <span class="n">inference_loop</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">hmc_kernel</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">)</span>
 
 <span class="n">loc_samples</span> <span class="o">=</span> <span class="n">states</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="s2">&quot;loc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
@@ -484,8 +484,8 @@ No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.4 s, sys: 15.7 ms, total: 3.42 s
-Wall time: 3.41 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.46 s, sys: 16.1 ms, total: 1.47 s
+Wall time: 1.47 s
 </pre></div>
 </div>
 </div>
@@ -513,7 +513,7 @@ Wall time: 3.41 s
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;scale&#39;)
 </pre></div>
 </div>
-<img alt="../_images/9523a601c290f8d9e4a674dcec67626a7d36bef10a53e467b9a6134d26d4d5b4.png" src="../_images/9523a601c290f8d9e4a674dcec67626a7d36bef10a53e467b9a6134d26d4d5b4.png" />
+<img alt="../_images/a5e001e3f6e5bdcc4089ba62ab888127750a8dca4887d46255e7ebef50021434.png" src="../_images/a5e001e3f6e5bdcc4089ba62ab888127750a8dca4887d46255e7ebef50021434.png" />
 </div>
 </div>
 </section>
@@ -540,7 +540,7 @@ Wall time: 3.41 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-31940.441, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1178.2244, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(59043.01, dtype=float32, weak_type=True)})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-34464.97, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1214.8245, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(64092.07, dtype=float32, weak_type=True)})
 </pre></div>
 </div>
 </div>
@@ -548,7 +548,7 @@ Wall time: 3.41 s
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">rng_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">rng_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">states</span> <span class="o">=</span> <span class="n">inference_loop</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">nuts</span><span class="o">.</span><span class="n">step</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">,</span> <span class="mi">4_000</span><span class="p">)</span>
 
 <span class="n">loc_samples</span> <span class="o">=</span> <span class="n">states</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="s2">&quot;loc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
@@ -557,8 +557,8 @@ Wall time: 3.41 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.9 s, sys: 56.5 ms, total: 16 s
-Wall time: 15.9 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.27 s, sys: 11.3 ms, total: 6.28 s
+Wall time: 6.27 s
 </pre></div>
 </div>
 </div>
@@ -586,7 +586,7 @@ Wall time: 15.9 s
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;scale&#39;)
 </pre></div>
 </div>
-<img alt="../_images/d444e436e0242adee9e6efd5dd80ac41cc0dbcf886b546c351c93db1e5d9a920.png" src="../_images/d444e436e0242adee9e6efd5dd80ac41cc0dbcf886b546c351c93db1e5d9a920.png" />
+<img alt="../_images/8954f5b77d4e5ecfc1fba4bff5146ae32ea57026899b71f0365cfb0549a72b90.png" src="../_images/8954f5b77d4e5ecfc1fba4bff5146ae32ea57026899b71f0365cfb0549a72b90.png" />
 </div>
 </div>
 <section id="use-stan-s-window-adaptation">
@@ -603,8 +603,8 @@ Wall time: 15.9 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.03 s, sys: 12 ms, total: 3.05 s
-Wall time: 3.03 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.12 s, sys: 11.9 ms, total: 2.13 s
+Wall time: 2.11 s
 </pre></div>
 </div>
 </div>
@@ -623,8 +623,8 @@ Wall time: 3.03 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.41 s, sys: 32.1 ms, total: 2.45 s
-Wall time: 2.43 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.71 s, sys: 20.2 ms, total: 1.73 s
+Wall time: 1.72 s
 </pre></div>
 </div>
 </div>
@@ -652,7 +652,7 @@ Wall time: 2.43 s
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;scale&#39;)
 </pre></div>
 </div>
-<img alt="../_images/73e83c3fdb016ea7f992381fce58dcdecbdb733cbdc8a770b117e0d798e51a49.png" src="../_images/73e83c3fdb016ea7f992381fce58dcdecbdb733cbdc8a770b117e0d798e51a49.png" />
+<img alt="../_images/fb14a0f2346ca0337dd91cbdef86f39df62a553161bbc40276791880ae7406d5.png" src="../_images/fb14a0f2346ca0337dd91cbdef86f39df62a553161bbc40276791880ae7406d5.png" />
 </div>
 </div>
 </section>
