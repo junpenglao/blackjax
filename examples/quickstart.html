@@ -180,6 +180,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/blackjax/mcmc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.mcmc</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/mcmc/barker/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.mcmc.barker</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/mcmc/diffusions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.mcmc.diffusions</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/mcmc/elliptical_slice/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.mcmc.elliptical_slice</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/mcmc/ghmc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.mcmc.ghmc</span></code></a></li>
@@ -442,7 +443,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-35731.5, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1260.9858, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(66625.125, dtype=float32, weak_type=True)})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-35904.1, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1186.432, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(66970.33, dtype=float32, weak_type=True)})
 </pre></div>
 </div>
 </div>
@@ -490,8 +491,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.53 s, sys: 7.84 ms, total: 1.54 s
-Wall time: 1.54 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.56 s, sys: 6.79 ms, total: 1.57 s
+Wall time: 1.56 s
 </pre></div>
 </div>
 </div>
@@ -516,7 +517,7 @@ Wall time: 1.54 s
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/3403ff6a5adc2bc32700db67ea5ea8552dc8fafe9801080390373007eab24df4.png" src="../_images/3403ff6a5adc2bc32700db67ea5ea8552dc8fafe9801080390373007eab24df4.png" />
+<img alt="../_images/9a7da4c52d909e44559271fcc55b0c1fb4a2e38397f9a600279bc53eb403c981.png" src="../_images/9a7da4c52d909e44559271fcc55b0c1fb4a2e38397f9a600279bc53eb403c981.png" />
 </div>
 </div>
 </section>
@@ -543,7 +544,7 @@ Wall time: 1.54 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-35731.5, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1260.9858, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(66625.125, dtype=float32, weak_type=True)})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-35904.1, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1186.432, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(66970.33, dtype=float32, weak_type=True)})
 </pre></div>
 </div>
 </div>
@@ -560,8 +561,8 @@ Wall time: 1.54 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.39 s, sys: 10.1 ms, total: 6.4 s
-Wall time: 6.39 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.89 s, sys: 7.02 ms, total: 6.89 s
+Wall time: 6.88 s
 </pre></div>
 </div>
 </div>
@@ -586,7 +587,7 @@ Wall time: 6.39 s
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/c8a3bc3bc333d2f642e1880417cbca8b5b63ef945860c660e1aaa4af0914ee76.png" src="../_images/c8a3bc3bc333d2f642e1880417cbca8b5b63ef945860c660e1aaa4af0914ee76.png" />
+<img alt="../_images/f808b1ea3d0b9cb4466c91ee6396e42fc53578758b26b85c3b221bdb50f42baf.png" src="../_images/f808b1ea3d0b9cb4466c91ee6396e42fc53578758b26b85c3b221bdb50f42baf.png" />
 </div>
 </div>
 <section id="use-stan-s-window-adaptation">
@@ -604,8 +605,8 @@ Wall time: 6.39 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.67 s, sys: 30.8 ms, total: 1.7 s
-Wall time: 1.69 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.71 s, sys: 7.69 ms, total: 1.72 s
+Wall time: 1.71 s
 </pre></div>
 </div>
 </div>
@@ -624,8 +625,8 @@ Wall time: 1.69 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.27 s, sys: 7.35 ms, total: 1.28 s
-Wall time: 1.27 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.28 s, sys: 7.51 ms, total: 1.29 s
+Wall time: 1.28 s
 </pre></div>
 </div>
 </div>
@@ -650,7 +651,7 @@ Wall time: 1.27 s
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/8f269d35db8c85e891674a917681d6f66470608128201e744bcbbfc682695d77.png" src="../_images/8f269d35db8c85e891674a917681d6f66470608128201e744bcbbfc682695d77.png" />
+<img alt="../_images/189e7da1ddbe3227e71d845e6c45d77d3ee93d1e775f80fc93900951b1918a2e.png" src="../_images/189e7da1ddbe3227e71d845e6c45d77d3ee93d1e775f80fc93900951b1918a2e.png" />
 </div>
 </div>
 </section>
