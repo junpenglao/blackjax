@@ -209,15 +209,21 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/blackjax/smc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../autoapi/blackjax/smc/tuning/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.tuning</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../autoapi/blackjax/smc/tuning/from_kernel_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.tuning.from_kernel_info</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../autoapi/blackjax/smc/tuning/from_particles/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.tuning.from_particles</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/smc/adaptive_tempered/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.adaptive_tempered</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/smc/base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.base</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/smc/ess/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.ess</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/smc/inner_kernel_tuning/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.inner_kernel_tuning</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/smc/resampling/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.resampling</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/smc/solver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.solver</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/smc/tempered/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.smc.tempered</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/blackjax/vi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.vi</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/blackjax/vi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.vi</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/vi/meanfield_vi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.vi.meanfield_vi</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/vi/pathfinder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.vi.pathfinder</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/blackjax/vi/schrodinger_follmer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blackjax.vi.schrodinger_follmer</span></code></a></li>
@@ -446,7 +452,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-34548.41, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1230.9468, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(64258.95, dtype=float32, weak_type=True)})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-34134.99, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1286.1443, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(63432.098, dtype=float32, weak_type=True)})
 </pre></div>
 </div>
 </div>
@@ -494,8 +500,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.54 s, sys: 15.3 ms, total: 1.56 s
-Wall time: 1.55 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.5 s, sys: 4.43 ms, total: 1.5 s
+Wall time: 1.5 s
 </pre></div>
 </div>
 </div>
@@ -520,7 +526,7 @@ Wall time: 1.55 s
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/fc007b3017506cb5334f16bffa4159a26ba3bed2b721faa82f2e3ba86cda18bb.png" src="../_images/fc007b3017506cb5334f16bffa4159a26ba3bed2b721faa82f2e3ba86cda18bb.png" />
+<img alt="../_images/9163213771f5421fc86d07454ae61d6d46e5776a5792cec1991ea0fb10269a05.png" src="../_images/9163213771f5421fc86d07454ae61d6d46e5776a5792cec1991ea0fb10269a05.png" />
 </div>
 </div>
 </section>
@@ -547,7 +553,7 @@ Wall time: 1.55 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-34548.41, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1230.9468, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(64258.95, dtype=float32, weak_type=True)})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HMCState(position={&#39;loc&#39;: 1.0, &#39;log_scale&#39;: 1.0}, logdensity=Array(-34134.99, dtype=float32), logdensity_grad={&#39;loc&#39;: Array(1286.1443, dtype=float32, weak_type=True), &#39;log_scale&#39;: Array(63432.098, dtype=float32, weak_type=True)})
 </pre></div>
 </div>
 </div>
@@ -564,8 +570,8 @@ Wall time: 1.55 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.82 s, sys: 14.1 ms, total: 6.83 s
-Wall time: 6.82 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.6 s, sys: 24.1 ms, total: 6.63 s
+Wall time: 6.61 s
 </pre></div>
 </div>
 </div>
@@ -590,7 +596,7 @@ Wall time: 6.82 s
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/7e548f3f8a10ea56d2ed71a25d4efbe339888c284c0ba401c62ad918c9ceb3e3.png" src="../_images/7e548f3f8a10ea56d2ed71a25d4efbe339888c284c0ba401c62ad918c9ceb3e3.png" />
+<img alt="../_images/876c9ecd8547829d30f0d8781dee853b97133a4c8187646caf2a4d5dfa42becc.png" src="../_images/876c9ecd8547829d30f0d8781dee853b97133a4c8187646caf2a4d5dfa42becc.png" />
 </div>
 </div>
 <section id="use-stan-s-window-adaptation">
@@ -608,8 +614,8 @@ Wall time: 6.82 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.77 s, sys: 24.8 ms, total: 1.8 s
-Wall time: 1.78 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.69 s, sys: 16.6 ms, total: 1.7 s
+Wall time: 1.69 s
 </pre></div>
 </div>
 </div>
@@ -628,8 +634,8 @@ Wall time: 1.78 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.16 s, sys: 8.4 ms, total: 1.17 s
-Wall time: 1.16 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.14 s, sys: 8.29 ms, total: 1.15 s
+Wall time: 1.14 s
 </pre></div>
 </div>
 </div>
@@ -654,7 +660,7 @@ Wall time: 1.16 s
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e6298f95a3162240af8b0ed0992e8ad292ee771a31de2e778685a8c95ae30831.png" src="../_images/e6298f95a3162240af8b0ed0992e8ad292ee771a31de2e778685a8c95ae30831.png" />
+<img alt="../_images/4c1bd7c6f9db8def7801f3b449697d2ba93c6d1c1f46895c8761bd8d3f5984cb.png" src="../_images/4c1bd7c6f9db8def7801f3b449697d2ba93c6d1c1f46895c8761bd8d3f5984cb.png" />
 </div>
 </div>
 </section>
