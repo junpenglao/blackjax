@@ -384,6 +384,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">jax</span>
 <span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
 
+<span class="kn">from</span> <span class="nn">blackjax.mcmc.metrics</span> <span class="kn">import</span> <span class="n">CheckTurning</span>
 <span class="kn">from</span> <span class="nn">blackjax.types</span> <span class="kn">import</span> <span class="n">Array</span>
 
 
@@ -411,7 +412,7 @@ document.write(`
 
 <div class="viewcode-block" id="iterative_uturn_numpyro">
 <a class="viewcode-back" href="../../../autoapi/blackjax/mcmc/termination/index.html#blackjax.mcmc.termination.iterative_uturn_numpyro">[docs]</a>
-<span class="k">def</span> <span class="nf">iterative_uturn_numpyro</span><span class="p">(</span><span class="n">is_turning</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">iterative_uturn_numpyro</span><span class="p">(</span><span class="n">is_turning</span><span class="p">:</span> <span class="n">CheckTurning</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Numpyro style dynamic U-Turn criterion.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">new_state</span><span class="p">(</span><span class="n">chain_state</span><span class="p">,</span> <span class="n">max_num_doublings</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IterativeUTurnState</span><span class="p">:</span>
