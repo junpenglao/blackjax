@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=e37d73aa" />
   
@@ -40,7 +40,7 @@
   <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script src="../../../_static/design-tabs.js?v=36754332"></script>
@@ -547,8 +547,8 @@ document.write(`
 <span class="k">class</span> <span class="nc">ReasonableStepSizeState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;State carried through the search for a reasonable first step size.</span>
 
-<span class="sd">    rng_key</span>
-<span class="sd">        Key used by JAX&#39;s random number generator.</span>
+<span class="sd">    step</span>
+<span class="sd">        The current iteration step.</span>
 <span class="sd">    direction: {-1, 1}</span>
 <span class="sd">        Determines whether the step size should be increased or decreased during the</span>
 <span class="sd">        previous step search. If direction = 1 it will be increased, otherwise decreased.</span>
@@ -560,7 +560,7 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">rng_key</span><span class="p">:</span> <span class="n">PRNGKey</span>
+    <span class="n">step</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">direction</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">previous_direction</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">step_size</span><span class="p">:</span> <span class="nb">float</span>
@@ -634,17 +634,17 @@ document.write(`
 
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">rss_state</span><span class="p">:</span> <span class="n">ReasonableStepSizeState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReasonableStepSizeState</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform one step of the step size search.&quot;&quot;&quot;</span>
-        <span class="n">rng_key</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">step_size</span> <span class="o">=</span> <span class="n">rss_state</span>
-        <span class="n">rng_key</span><span class="p">,</span> <span class="n">subkey</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rng_key</span><span class="p">)</span>
+        <span class="n">i</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">step_size</span> <span class="o">=</span> <span class="n">rss_state</span>
+        <span class="n">subkey</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">fold_in</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 
         <span class="n">step_size</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">**</span><span class="n">direction</span><span class="p">)</span> <span class="o">*</span> <span class="n">step_size</span>
         <span class="n">kernel</span> <span class="o">=</span> <span class="n">kernel_generator</span><span class="p">(</span><span class="n">step_size</span><span class="p">)</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">(</span><span class="n">subkey</span><span class="p">,</span> <span class="n">reference_state</span><span class="p">)</span>
 
         <span class="n">new_direction</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">target_accept</span> <span class="o">&lt;</span> <span class="n">info</span><span class="o">.</span><span class="n">acceptance_rate</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ReasonableStepSizeState</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">new_direction</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">step_size</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ReasonableStepSizeState</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new_direction</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">step_size</span><span class="p">)</span>
 
-    <span class="n">rss_state</span> <span class="o">=</span> <span class="n">ReasonableStepSizeState</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">initial_step_size</span><span class="p">)</span>
+    <span class="n">rss_state</span> <span class="o">=</span> <span class="n">ReasonableStepSizeState</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">initial_step_size</span><span class="p">)</span>
     <span class="n">rss_state</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">lax</span><span class="o">.</span><span class="n">while_loop</span><span class="p">(</span><span class="n">do_continue</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">rss_state</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">rss_state</span><span class="o">.</span><span class="n">step_size</span></div>
