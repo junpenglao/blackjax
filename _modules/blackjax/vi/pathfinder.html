@@ -393,7 +393,7 @@ document.write(`
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">blackjax.types</span> <span class="kn">import</span> <span class="n">Array</span><span class="p">,</span> <span class="n">ArrayLikeTree</span><span class="p">,</span> <span class="n">ArrayTree</span><span class="p">,</span> <span class="n">PRNGKey</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PathfinderState&quot;</span><span class="p">,</span> <span class="s2">&quot;approximate&quot;</span><span class="p">,</span> <span class="s2">&quot;sample&quot;</span><span class="p">,</span> <span class="s2">&quot;pathfinder&quot;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PathfinderState&quot;</span><span class="p">,</span> <span class="s2">&quot;approximate&quot;</span><span class="p">,</span> <span class="s2">&quot;sample&quot;</span><span class="p">,</span> <span class="s2">&quot;as_top_level_api&quot;</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="PathfinderState">
@@ -637,9 +637,9 @@ document.write(`
 
 
 
-<div class="viewcode-block" id="pathfinder">
-<a class="viewcode-back" href="../../../autoapi/blackjax/vi/pathfinder/index.html#blackjax.vi.pathfinder.pathfinder">[docs]</a>
-<span class="k">class</span> <span class="nc">pathfinder</span><span class="p">:</span>
+<div class="viewcode-block" id="as_top_level_api">
+<a class="viewcode-back" href="../../../autoapi/blackjax/vi/pathfinder/index.html#blackjax.vi.pathfinder.as_top_level_api">[docs]</a>
+<span class="k">def</span> <span class="nf">as_top_level_api</span><span class="p">(</span><span class="n">logdensity_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PathFinderAlgorithm</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements the (basic) user interface for the pathfinder kernel.</span>
 
 <span class="sd">    Pathfinder locates normal approximations to the target density along a</span>
@@ -663,30 +663,20 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="pathfinder.approximate">
-<a class="viewcode-back" href="../../../autoapi/blackjax/vi/pathfinder/index.html#blackjax.vi.pathfinder.pathfinder.approximate">[docs]</a>
-    <span class="n">approximate</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">approximate</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">approximate_fn</span><span class="p">(</span>
+        <span class="n">rng_key</span><span class="p">:</span> <span class="n">PRNGKey</span><span class="p">,</span>
+        <span class="n">position</span><span class="p">:</span> <span class="n">ArrayLikeTree</span><span class="p">,</span>
+        <span class="n">num_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">lbfgs_parameters</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="n">approximate</span><span class="p">(</span>
+            <span class="n">rng_key</span><span class="p">,</span> <span class="n">logdensity_fn</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="o">**</span><span class="n">lbfgs_parameters</span>
+        <span class="p">)</span>
 
-<div class="viewcode-block" id="pathfinder.sample">
-<a class="viewcode-back" href="../../../autoapi/blackjax/vi/pathfinder/index.html#blackjax.vi.pathfinder.pathfinder.sample">[docs]</a>
-    <span class="n">sample</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">sample_fn</span><span class="p">(</span><span class="n">rng_key</span><span class="p">:</span> <span class="n">PRNGKey</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">PathfinderState</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">sample</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
 
-
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">logdensity_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PathFinderAlgorithm</span><span class="p">:</span>  <span class="c1"># type: ignore[misc]</span>
-        <span class="k">def</span> <span class="nf">approximate_fn</span><span class="p">(</span>
-            <span class="n">rng_key</span><span class="p">:</span> <span class="n">PRNGKey</span><span class="p">,</span>
-            <span class="n">position</span><span class="p">:</span> <span class="n">ArrayLikeTree</span><span class="p">,</span>
-            <span class="n">num_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
-            <span class="o">**</span><span class="n">lbfgs_parameters</span><span class="p">,</span>
-        <span class="p">):</span>
-            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">approximate</span><span class="p">(</span>
-                <span class="n">rng_key</span><span class="p">,</span> <span class="n">logdensity_fn</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="o">**</span><span class="n">lbfgs_parameters</span>
-            <span class="p">)</span>
-
-        <span class="k">def</span> <span class="nf">sample_fn</span><span class="p">(</span><span class="n">rng_key</span><span class="p">:</span> <span class="n">PRNGKey</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">PathfinderState</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">PathFinderAlgorithm</span><span class="p">(</span><span class="n">approximate_fn</span><span class="p">,</span> <span class="n">sample_fn</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">PathFinderAlgorithm</span><span class="p">(</span><span class="n">approximate_fn</span><span class="p">,</span> <span class="n">sample_fn</span><span class="p">)</span></div>
 
 </pre></div>
 
