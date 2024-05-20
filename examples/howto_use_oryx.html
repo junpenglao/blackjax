@@ -550,11 +550,11 @@ Number of data points: 150
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">File</span> <span class="o">&lt;</span><span class="n">timed</span> <span class="n">exec</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">5</span>
 
-<span class="nn">File ~/work/blackjax/blackjax/blackjax/adaptation/window_adaptation.py:323,</span> in <span class="ni">window_adaptation.&lt;locals&gt;.run</span><span class="nt">(rng_key, position, num_steps)</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">rng_key</span><span class="p">:</span> <span class="n">PRNGKey</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="n">ArrayLikeTree</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">323</span>     <span class="n">init_state</span> <span class="o">=</span> <span class="n">algorithm</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">logdensity_fn</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">324</span>     <span class="n">init_adaptation_state</span> <span class="o">=</span> <span class="n">adapt_init</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">initial_step_size</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="k">if</span> <span class="n">progress_bar</span><span class="p">:</span>
+<span class="nn">File ~/work/blackjax/blackjax/blackjax/adaptation/window_adaptation.py:329,</span> in <span class="ni">window_adaptation.&lt;locals&gt;.run</span><span class="nt">(rng_key, position, num_steps)</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">rng_key</span><span class="p">:</span> <span class="n">PRNGKey</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="n">ArrayLikeTree</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">329</span>     <span class="n">init_state</span> <span class="o">=</span> <span class="n">algorithm</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">logdensity_fn</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="n">init_adaptation_state</span> <span class="o">=</span> <span class="n">adapt_init</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">initial_step_size</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="k">if</span> <span class="n">progress_bar</span><span class="p">:</span>
 
 <span class="nn">File ~/work/blackjax/blackjax/blackjax/mcmc/hmc.py:89,</span> in <span class="ni">init</span><span class="nt">(position, logdensity_fn)</span>
 <span class="g g-Whitespace">     </span><span class="mi">88</span> <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="n">position</span><span class="p">:</span> <span class="n">ArrayLikeTree</span><span class="p">,</span> <span class="n">logdensity_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
@@ -636,9 +636,9 @@ Number of data points: 150
 
     <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">4</span> <span class="n">frame</span><span class="p">]</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.11.9/x64/lib/python3.11/site-packages/jax/_src/pjit.py:1853,</span> in <span class="ni">_pjit_jvp.&lt;locals&gt;._filter_zeros</span><span class="nt">(is_nz_l, l)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1852</span> <span class="k">def</span> <span class="nf">_filter_zeros</span><span class="p">(</span><span class="n">is_nz_l</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
-<span class="nn">-&gt; 1853   return (x for nz, x</span> in <span class="ni">zip</span><span class="nt">(is_nz_l, l) if nz)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.9/x64/lib/python3.11/site-packages/jax/_src/pjit.py:1819,</span> in <span class="ni">_pjit_jvp.&lt;locals&gt;._filter_zeros</span><span class="nt">(is_nz_l, l)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1818</span> <span class="k">def</span> <span class="nf">_filter_zeros</span><span class="p">(</span><span class="n">is_nz_l</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+<span class="nn">-&gt; 1819   return (x for nz, x</span> in <span class="ni">zip</span><span class="nt">(is_nz_l, l) if nz)</span>
 
 <span class="ne">ValueError</span>: safe_zip() argument 2 is shorter than argument 1
 </pre></div>
