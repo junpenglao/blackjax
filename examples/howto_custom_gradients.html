@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
@@ -36,9 +36,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e37d73aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -128,6 +128,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../index.html">
   
@@ -149,7 +151,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -327,10 +329,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -338,7 +340,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -399,10 +401,9 @@ document.write(`
 <p>Functions can be defined as the minimum of another one, <span class="math notranslate nohighlight">\(f(x) = min_{y} g(x,y)\)</span>. Computing their gradients may be tedious, especially if the minimisation happens numerically rather than in closed form. We show how automatic derivatives can be modified on such examples, resulting in better overall efficiency and stability.</p>
 <p>Our example is taken from the theory of <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_conjugate">convex conjugates</a>, used for example in optimal transport. Let’s consider the following function:</p>
 <p>$$
-\begin{align*}
-g(x, y) &amp;= h(y) - \langle x, y\rangle\
-h(x) &amp;= \frac{1}{p}|x|^p,\qquad p &gt; 1.\
-\end{align*}
+\begin{equation*}
+g(x, y) = h(y) - \langle x, y\rangle,\qquad h(x) = \frac{1}{p}|x|^p,\qquad p &gt; 1.
+\end{equation*}
 $$</p>
 <p>And define the function <span class="math notranslate nohighlight">\(f\)</span> as <span class="math notranslate nohighlight">\(f(x) = -min_y g(x, y)\)</span> which we can be implemented as:</p>
 <div class="cell tag_remove-output docutils container">
@@ -439,7 +440,7 @@ $$</p>
 <p>Note the we also return the value of <span class="math notranslate nohighlight">\(y\)</span> where the minimum of <span class="math notranslate nohighlight">\(g\)</span> is achieved (this will be useful later).</p>
 <section id="trying-to-differentate-the-function-with-jax-grad">
 <h3>Trying to differentate the function with <code class="docutils literal notranslate"><span class="pre">jax.grad</span></code><a class="headerlink" href="#trying-to-differentate-the-function-with-jax-grad" title="Link to this heading">#</a></h3>
-<p>The gradient of the function <span class="math notranslate nohighlight">\(f\)</span> is undefined for JAX, which cannot differentiate through <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, and trying to compute it directly raises an error:</p>
+<p>The gradient of the function <span class="math notranslate nohighlight">\(f\)</span> is undefined for JAX, which cannot differentiate through <code class="docutils literal notranslate"><span class="pre">while</span></code> loops used in BFGS, and trying to compute it directly raises an error:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We only want the gradient with respect to `x`</span>
@@ -469,12 +470,12 @@ $$</p>
 \[\begin{equation*}
     \frac{dh}{dy} - x = 0,
 \end{equation*}\]</div>
-<p>Ensures that:</p>
+<p>ensures that</p>
 <div class="math notranslate nohighlight">
 \[\begin{equation*}
     \frac{df}{dx} = y(x).
 \end{equation*}\]</div>
-<p>i.e. the value of the derivative at <span class="math notranslate nohighlight">\(x\)</span> is the value <span class="math notranslate nohighlight">\(y(x)\)</span> at which the minimum of the function <span class="math notranslate nohighlight">\(g\)</span> is achieved.</p>
+<p>In other words, the value of the derivative at <span class="math notranslate nohighlight">\(x\)</span> is the value <span class="math notranslate nohighlight">\(y(x)\)</span> at which the minimum of the function <span class="math notranslate nohighlight">\(g\)</span> is achieved.</p>
 </section>
 <section id="telling-jax-to-use-a-custom-gradient">
 <h3>Telling JAX to use a custom gradient<a class="headerlink" href="#telling-jax-to-use-a-custom-gradient" title="Link to this heading">#</a></h3>
@@ -600,7 +601,7 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(HMCState(position=1.0, logdensity=Array(-2.5600991, dtype=float32), logdensity_grad=Array(-1.6666666, dtype=float32, weak_type=True)),
- HMCState(position=Array(0.78699994, dtype=float32, weak_type=True), logdensity=Array(-2.2558823, dtype=float32), logdensity_grad=Array(-1.1999125, dtype=float32, weak_type=True)))
+ HMCState(position=Array(0.91459525, dtype=float32, weak_type=True), logdensity=Array(-2.4261293, dtype=float32), logdensity_grad=Array(-1.4722515, dtype=float32, weak_type=True)))
 </pre></div>
 </div>
 </div>
@@ -710,8 +711,8 @@ By The Blackjax developers
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
