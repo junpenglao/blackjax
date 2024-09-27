@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=e37d73aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -239,6 +239,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../smc/resampling/index.html">blackjax.smc.resampling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../smc/solver/index.html">blackjax.smc.solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../smc/tempered/index.html">blackjax.smc.tempered</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../smc/waste_free/index.html">blackjax.smc.waste_free</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../vi/index.html">blackjax.vi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -538,6 +539,9 @@ the algorithm a good candiate for running many chains in parallel.</p>
 <li><p><strong>step_size</strong> – A PyTree of the same structure as the target PyTree (position) with the
 values used for as a step size for each dimension of the target space in
 the velocity verlet integrator.</p></li>
+<li><p><strong>momentum_inverse_scale</strong> – Pytree with the same structure as the targeted position variable
+specifying the per dimension inverse scaling transformation applied
+to the persistent momentum variable prior to the integration step.</p></li>
 <li><p><strong>alpha</strong> – The value defining the persistence of the momentum variable.</p></li>
 <li><p><strong>delta</strong> – The value defining the deterministic translation of the slice variable.</p></li>
 <li><p><strong>divergence_threshold</strong> – The absolute value of the difference in energy between two states above
